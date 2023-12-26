@@ -6,7 +6,7 @@ using UnityEngine;
 
 public class HealthHUDController : MonoBehaviour
 {
-    public static int health;
+    public static int health = 5;
     public float WaitDuration;
     protected float Timer;
     [SerializeField] private TextMeshProUGUI myText;
@@ -17,7 +17,8 @@ public class HealthHUDController : MonoBehaviour
     }
     void Update()
     {
-        if (UIControl.Is_GameStart)
+        UIControl.Is_GameStart = true;
+        if (UIControl.Is_GameStart && health >= 0)
         {
             Timer += Time.deltaTime;
             myText.text = health.ToString();
