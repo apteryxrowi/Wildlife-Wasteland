@@ -31,9 +31,19 @@ public class FoodController : MonoBehaviour
     private const float _maxObjectDistance = 3.5f;
     private const float _minObjectHeight = 0.5f;
     private const float _maxObjectHeight = 3.5f;
+/*    protected float Timer;
+    public void Update()
+    {
+        Timer += Time.deltaTime;
+        if (Timer > 10)
+        {
+            Timer = 0f;
+            HealthHUDController.EatFood(10);
+        }
+    }*/
     public void OnPointerClick()
     {
-        HealthHUDController.EatFood(1);
+        HealthHUDController.EatFood(10);
         this.gameObject.SetActive(false);
     }
 }
