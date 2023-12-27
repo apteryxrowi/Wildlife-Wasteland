@@ -11,7 +11,7 @@ public class HealthHUDController : MonoBehaviour
     protected float Timer;
     [SerializeField] private TextMeshProUGUI myText;
     // Update is called once per frame
-    public static void EatFood(int amount)
+    public static void HealthChange(int amount)
     {
         health = health + amount;
     }

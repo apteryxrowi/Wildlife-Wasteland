@@ -43,7 +43,7 @@ public class FoodController : MonoBehaviour
     }*/
     public void OnPointerClick()
     {
-        HealthHUDController.EatFood(10);
+        HealthHUDController.HealthChange(10);
         this.gameObject.SetActive(false);
     }
 }
