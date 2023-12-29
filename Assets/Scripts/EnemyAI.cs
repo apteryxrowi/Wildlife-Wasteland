@@ -17,8 +17,10 @@ public class EnemyAI : MonoBehaviour
     private Vector3 roamPosition;
     private States state;
     private float Timer;
+    public Animation anim;
     public NavMeshAgent agent;
     public GameObject Player;
+
     // Start is called before the first frame update
     private void Start()
     {
@@ -34,6 +36,7 @@ public class EnemyAI : MonoBehaviour
             case States.Roaming:
             // When the enemy is roaming / idle
                 agent.SetDestination(roamPosition);
+                anim.Play("Walk");
                 float reachedPositionDistance = 1f;
                 if (Vector3.Distance(transform.position, roamPosition) < reachedPositionDistance)
                 {
@@ -45,15 +48,16 @@ public class EnemyAI : MonoBehaviour
             case States.Chase:
             // When the enemy is chasing the Player
                 agent.SetDestination(Player.transform.position);
+                anim.Play("Run");
                 float attackRange = 2f;
                 if (Vector3.Distance(transform.position, Player.transform.position) < attackRange)
                 {
                     // Target within attack range
                     if (Time.time > Timer)
                     {
-                        Debug.Log("attack");
                         state = States.Attack;
                         agent.SetDestination(transform.position);
+                        anim.Play("Attack");
                         HealthHUDController.HealthChange(-5);
                         state = States.Chase;
                         float attackRate = 1f;
@@ -73,6 +77,7 @@ public class EnemyAI : MonoBehaviour
             case States.Return:
             // Return to Starting Position
                 agent.SetDestination(startingPosition);
+                anim.Play("Walk");
                 reachedPositionDistance = 1f;
                 if (Vector3.Distance(transform.position, startingPosition) < reachedPositionDistance)
                 {
@@ -89,7 +94,7 @@ public class EnemyAI : MonoBehaviour
     }
     private Vector3 GetRoamingPosition()
     {
-        return startingPosition + GetRandomDir() * Random.Range(1f, 7f);
+        return startingPosition + GetRandomDir() * Random.Range(5f, 12f);
     }
     private void FindTarget()
     {
