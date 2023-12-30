@@ -17,13 +17,15 @@ public class EnemyAI : MonoBehaviour
     private Vector3 roamPosition;
     private States state;
     private float Timer;
+    private float animTimer;
+    private GameObject Player;
     public Animation anim;
     public NavMeshAgent agent;
-    public GameObject Player;
 
     // Start is called before the first frame update
     private void Start()
     {
+        Player = GameObject.Find("Player");
         startingPosition = transform.position;
         roamPosition = GetRoamingPosition();
         state = States.Roaming;
@@ -37,7 +39,7 @@ public class EnemyAI : MonoBehaviour
             // When the enemy is roaming / idle
                 agent.SetDestination(roamPosition);
                 anim.Play("Walk");
-                float reachedPositionDistance = 1f;
+                float reachedPositionDistance = 2f;
                 if (Vector3.Distance(transform.position, roamPosition) < reachedPositionDistance)
                 {
                     // Reached Roam Position
@@ -49,22 +51,24 @@ public class EnemyAI : MonoBehaviour
             // When the enemy is chasing the Player
                 agent.SetDestination(Player.transform.position);
                 anim.Play("Run");
-                float attackRange = 2f;
+                float attackRange = 4f;
                 if (Vector3.Distance(transform.position, Player.transform.position) < attackRange)
                 {
                     // Target within attack range
                     if (Time.time > Timer)
                     {
+                        Vector3 relativePos = Player.transform.position - transform.position;
                         state = States.Attack;
                         agent.SetDestination(transform.position);
+                        transform.rotation = Quaternion.LookRotation(relativePos, Vector3.up);
                         anim.Play("Attack");
+                        animTimer = Time.time + 2;
                         HealthHUDController.HealthChange(-5);
-                        state = States.Chase;
                         float attackRate = 1f;
                         Timer = Time.time + attackRate;
                     }
                 }
-                float stopChaseDistance = 6f;
+                float stopChaseDistance = 8f;
                 if (Vector3.Distance(transform.position, Player.transform.position) > stopChaseDistance)
                 {
                     // Too far, stop chasing
@@ -72,7 +76,11 @@ public class EnemyAI : MonoBehaviour
                 }
                 break;
             case States.Attack:
-            // Dummy state for when the enemy is attacking
+                // When the enemy is attacking
+                if (Time.time > animTimer)
+                {
+                    state = States.Chase;
+                }
                 break;
             case States.Return:
             // Return to Starting Position
@@ -98,7 +106,7 @@ public class EnemyAI : MonoBehaviour
     }
     private void FindTarget()
     {
-        float targetRange = 5f;
+        float targetRange = 7f;
         if (Vector3.Distance(transform.position, Player.transform.position) < targetRange)
         {
             // Player within target range
