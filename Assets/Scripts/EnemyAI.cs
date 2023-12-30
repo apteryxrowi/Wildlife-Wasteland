@@ -39,6 +39,7 @@ public class EnemyAI : MonoBehaviour
             // When the enemy is roaming / idle
                 agent.SetDestination(roamPosition);
                 anim.Play("Walk");
+                agent.speed = 1.0f;
                 float reachedPositionDistance = 2f;
                 if (Vector3.Distance(transform.position, roamPosition) < reachedPositionDistance)
                 {
@@ -51,6 +52,7 @@ public class EnemyAI : MonoBehaviour
             // When the enemy is chasing the Player
                 agent.SetDestination(Player.transform.position);
                 anim.Play("Run");
+                agent.speed = 2f;
                 float attackRange = 4f;
                 if (Vector3.Distance(transform.position, Player.transform.position) < attackRange)
                 {
@@ -86,6 +88,7 @@ public class EnemyAI : MonoBehaviour
             // Return to Starting Position
                 agent.SetDestination(startingPosition);
                 anim.Play("Walk");
+                agent.speed = 1f;
                 reachedPositionDistance = 1f;
                 if (Vector3.Distance(transform.position, startingPosition) < reachedPositionDistance)
                 {
