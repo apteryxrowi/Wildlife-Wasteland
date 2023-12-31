@@ -6,7 +6,7 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/PleaseOpen/HelloCardboard.unity
+    path: Assets/PleaseOpen/Wildlife Wasteland.unity
     guid: 145a2a45d7bc746b19cb68410368bf96
   m_configObjects:
     com.unity.xr.management.loader_settings: {fileID: 11400000, guid: 64f5c768b3b956a40924b2abb54fc915, type: 2}
