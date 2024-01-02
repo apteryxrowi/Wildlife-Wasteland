@@ -24,6 +24,7 @@ using UnityEngine;
 /// </summary>
 public class FoodController : MonoBehaviour
 {
+    public int healthchange = 10;
     // The objects are about 1 meter in radius, so the min/max target distance are
     // set so that the objects are always within the room (which is about 5 meters
     // across).
@@ -43,7 +44,7 @@ public class FoodController : MonoBehaviour
     }*/
     public void OnPointerClick()
     {
-        HealthHUDController.HealthChange(10);
+        FoodHUDController.FoodChange(healthchange);
         this.gameObject.SetActive(false);
     }
 }

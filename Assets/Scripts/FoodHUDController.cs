@@ -18,7 +18,8 @@ public class FoodHUDController : MonoBehaviour
     void Update()
     {
         UIControl.Is_GameStart = true;
-        if (UIControl.Is_GameStart && Food >= 0 && Food <= 60)
+        // delete after done ^^^^
+        if (UIControl.Is_GameStart && Food > 0 && Food <= 60)
         {
             Timer += Time.deltaTime;
             myText.text = "";
@@ -30,7 +31,7 @@ public class FoodHUDController : MonoBehaviour
             if (Timer >= WaitDuration)
             {
                 Timer = 0f;
-                Food = Food - 10;
+                Food -= 10;
             }
         }
     }
