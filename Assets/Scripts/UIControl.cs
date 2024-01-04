@@ -35,7 +35,7 @@ public class UIControl : MonoBehaviour
     public Material GazedAtMaterial;
     public GameObject Object;
     public GameObject Player;
-    public static bool Is_GameStart = true;
+    public static bool Is_GameStart = false;
     public Vector3 Position;
 
     // The objects are about 1 meter in radius, so the min/max target distance are
