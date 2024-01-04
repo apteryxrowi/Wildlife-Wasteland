@@ -1,7 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using System.Data;
-using UnityEditor.UI;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -27,11 +26,24 @@ public class HealthHUDController : MonoBehaviour
                 myText.text += "O";
             }
             //myText.text = health.ToString();
-            if (Timer >= WaitDuration && FoodHUDController.Food >= 50)
+            if (Timer >= WaitDuration && EnergyHUDController.Energy >= 50 && health < 50)
             {
                 Timer = 0f;
                 health += 10;
-                FoodHUDController.FoodChange(-5);
+                if (health > 50)
+                {
+                    health = 50;
+                }
+                EnergyHUDController.EnergyChange(-5);
+            }
+            else if (Timer >= WaitDuration && EnergyHUDController.Energy <= 0)
+            {
+                Timer = 0f;
+                health -= 10;
+            }
+            else if (health <= 0)
+            {
+                UIControl.Is_GameStart = false;
             }
         }
     }

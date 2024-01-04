@@ -20,6 +20,7 @@ public class EnemyAI : MonoBehaviour
     private float animTimer;
     private GameObject Player;
     public Animation anim;
+    public AudioSource attacksound;
     public NavMeshAgent agent;
 
     // Start is called before the first frame update
@@ -64,6 +65,7 @@ public class EnemyAI : MonoBehaviour
                         agent.SetDestination(transform.position);
                         transform.rotation = Quaternion.LookRotation(relativePos, Vector3.up);
                         anim.Play("Attack");
+                        attacksound.Play();
                         animTimer = Time.time + 2;
                         HealthHUDController.HealthChange(-5);
                         float attackRate = 1f;

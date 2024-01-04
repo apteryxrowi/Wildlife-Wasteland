@@ -24,7 +24,9 @@ using UnityEngine;
 /// </summary>
 public class FoodController : MonoBehaviour
 {
-    public int healthchange = 10;
+    private GameObject audiosourceobject;
+    private AudioSource audiosource;
+    public int energychange = 10;
     // The objects are about 1 meter in radius, so the min/max target distance are
     // set so that the objects are always within the room (which is about 5 meters
     // across).
@@ -32,19 +34,15 @@ public class FoodController : MonoBehaviour
     private const float _maxObjectDistance = 3.5f;
     private const float _minObjectHeight = 0.5f;
     private const float _maxObjectHeight = 3.5f;
-/*    protected float Timer;
-    public void Update()
+    private void Start()
     {
-        Timer += Time.deltaTime;
-        if (Timer > 10)
-        {
-            Timer = 0f;
-            HealthHUDController.EatFood(10);
-        }
-    }*/
+        audiosourceobject = GameObject.Find("munchin-95618-[AudioTrimmer.com]");
+        audiosource = audiosourceobject.GetComponent<AudioSource>();
+    }
     public void OnPointerClick()
     {
-        FoodHUDController.FoodChange(healthchange);
+        EnergyHUDController.EnergyChange(energychange);
+        audiosource.Play();
         this.gameObject.SetActive(false);
     }
 }
