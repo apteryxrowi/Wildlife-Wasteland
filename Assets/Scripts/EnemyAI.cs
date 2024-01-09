@@ -26,7 +26,7 @@ public class EnemyAI : MonoBehaviour
     // Start is called before the first frame update
     private void Start()
     {
-        Player = GameObject.Find("Player");
+        Player = GameObject.FindWithTag("Player");
         startingPosition = transform.position;
         roamPosition = GetRoamingPosition();
         state = States.Roaming;

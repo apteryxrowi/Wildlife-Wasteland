@@ -33,7 +33,6 @@ public class UIControl : MonoBehaviour
     /// The material to use when this object is active (gazed at).
     /// </summary>
     public Material GazedAtMaterial;
-    public GameObject Object;
     public GameObject Player;
     public static bool Is_GameStart = false;
     public Vector3 Position;
@@ -64,8 +63,7 @@ public class UIControl : MonoBehaviour
     /// </summary>
     public void ActivateButton()
     {
-        Object.SetActive(false);
-        UIControl.Is_GameStart = true;
+        Is_GameStart = true;
         Player.transform.position = Position;
     }
     /// <summary>

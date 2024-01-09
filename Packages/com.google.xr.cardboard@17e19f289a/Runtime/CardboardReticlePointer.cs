@@ -79,7 +79,7 @@ public class CardboardReticlePointer : MonoBehaviour
     /// <summary>
     /// Maximum distance between the camera and the reticle (in meters).
     /// </summary>
-    private const float _RETICLE_MAX_DISTANCE = 20.0f;
+    private const float _RETICLE_MAX_DISTANCE = 20f;
 
     /// <summary>
     /// Number of segments making the reticle circle.

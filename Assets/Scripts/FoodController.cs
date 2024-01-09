@@ -41,8 +41,11 @@ public class FoodController : MonoBehaviour
     }
     public void OnPointerClick()
     {
-        EnergyHUDController.EnergyChange(energychange);
-        audiosource.Play();
-        this.gameObject.SetActive(false);
+        if (EnergyHUDController.Energy <= 60 - energychange)
+        {
+            EnergyHUDController.EnergyChange(energychange);
+            audiosource.Play();
+            this.gameObject.SetActive(false);
+        }
     }
 }

@@ -17,8 +17,6 @@ public class PlayerControl : MonoBehaviour
             transform.position = new Vector3(0,3.6f,0);
             HealthHUDController.health = 50;
             EnergyHUDController.Energy = 60;
-            GameObject UI = GameObject.Find("UI");
-            UI.SetActive(true);
         }
     }
 }
