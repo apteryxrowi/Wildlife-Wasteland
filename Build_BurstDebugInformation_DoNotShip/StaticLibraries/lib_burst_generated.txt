@@ -1,0 +1,31 @@
+Library: /Users/lguo/Documents/WILDLIFE WASTELAND/Temp/BurstOutput/StaticLibraries/lib_burst_generated
+--platform=iOS
+--backend=burst-llvm-10
+--target=ARMV8A_AARCH64
+--global-safety-checks-setting=Off
+--meta-data-generation=False
+--dump=Function
+--float-precision=Standard
+--target-framework=NetFramework
+--assembly-defines=Assembly-CSharp;
+--assembly-defines=Google.XR.Cardboard;
+--assembly-defines=Mono.Security;
+--assembly-defines=mscorlib;
+--assembly-defines=System.Configuration;
+--assembly-defines=System.Core;
+--assembly-defines=System;
+--assembly-defines=System.Xml;
+--assembly-defines=Unity.AI.Navigation;
+--assembly-defines=Unity.TextMeshPro;
+--assembly-defines=Unity.XR.Management;
+--assembly-defines=UnityEngine;
+--linker-options=min-ios-version=12.0
+--generate-link-xml=Temp/burst.link.xml
+--temp-folder=/Users/lguo/Documents/WILDLIFE WASTELAND/Temp/Burst
+--generate-static-linkage-methods
+--key-folder=/Applications/Unity/Hub/Editor/2022.3.13f1/PlaybackEngines/iOSSupport
+--decode-folder=/Users/lguo/Documents/WILDLIFE WASTELAND/Library/Burst
+--output=/Users/lguo/Documents/WILDLIFE WASTELAND/Temp/BurstOutput/StaticLibraries/lib_burst_generated
+--pdb-search-paths=Temp/ManagedSymbols/
+
+
