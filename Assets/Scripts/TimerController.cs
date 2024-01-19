@@ -17,16 +17,19 @@ public class TimerController : MonoBehaviour
     }
     void Update()
     {
-        Timer -= Time.deltaTime;
-        float x = Mathf.FloorToInt(Timer / 60);
-        float y = Mathf.FloorToInt(((Timer / 60) % 1) * 60);
-        if (y < 10)
+        if (UIControl.Is_GameStart)
         {
-            myText.text = x + " : 0" + y;
-        }
-        else
-        {
-            myText.text = x + " : " + y;
-        }
+            Timer -= Time.deltaTime;
+            float x = Mathf.FloorToInt(Timer / 60);
+            float y = Mathf.FloorToInt(((Timer / 60) % 1) * 60);
+            if (y < 10)
+            {
+                myText.text = x + " : 0" + y;
+            }
+            else
+            {
+                myText.text = x + " : " + y;
+            }
+        }    
     }
 }
