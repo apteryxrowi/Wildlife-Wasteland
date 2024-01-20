@@ -16,7 +16,6 @@ public class HydrationHUD : MonoBehaviour
     }
     void Start()
     {
-        UIControl.Is_GameStart = true;
         myText = GetComponent<Text>();
     }
     void Update()
