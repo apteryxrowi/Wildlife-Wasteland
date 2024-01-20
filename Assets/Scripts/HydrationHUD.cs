@@ -9,11 +9,15 @@ public class HydrationHUD : MonoBehaviour
     public static int Hydration = 60;
     public float WaitDuration;
     protected float Timer;
-    public Text myText;
-    // Update is called once per frame
+    private Text myText;
     public static void HydrationChange(int amount)
     {
         Hydration = Hydration + amount;
+    }
+    void Start()
+    {
+        UIControl.Is_GameStart = true;
+        myText = GetComponent<Text>();
     }
     void Update()
     {
@@ -23,7 +27,7 @@ public class HydrationHUD : MonoBehaviour
             myText.text = "";
             for (int i = 0; i < Hydration / 10; i++)
             {
-                myText.text += "S";
+                myText.text += "I";
             }
             //myText.text = Hydration.ToString();
             if (Timer >= WaitDuration)

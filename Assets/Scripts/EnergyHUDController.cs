@@ -9,11 +9,15 @@ public class EnergyHUDController : MonoBehaviour
     public static int Energy = 60;
     public float WaitDuration;
     protected float Timer;
-    public Text myText;
+    private Text myText;
     // Update is called once per frame
     public static void EnergyChange(int amount)
     {
         Energy = Energy + amount;
+    }
+    void Start()
+    {
+        myText = GetComponent<Text>();
     }
     void Update()
     {

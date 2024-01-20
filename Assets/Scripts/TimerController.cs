@@ -30,6 +30,14 @@ public class TimerController : MonoBehaviour
             {
                 myText.text = x + " : " + y;
             }
-        }    
+            if (Timer <= 0)
+            {
+                HealthHUDController.health = 0;
+            }
+        }
+        else
+        {
+            Timer = minutes * 60;
+        }
     }
 }

@@ -36,7 +36,7 @@ public class HealthHUDController : MonoBehaviour
                 }
                 EnergyHUDController.EnergyChange(-5);
             }
-            else if (Timer >= WaitDuration && EnergyHUDController.Energy <= 0)
+            else if (Timer >= WaitDuration && (EnergyHUDController.Energy <= 0 || HydrationHUD.Hydration <= 0))
             {
                 Timer = 0f;
                 health -= 10;
