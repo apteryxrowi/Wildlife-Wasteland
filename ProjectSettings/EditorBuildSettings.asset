@@ -9,4 +9,6 @@ EditorBuildSettings:
     path: Assets/PleaseOpen/Wildlife Wasteland.unity
     guid: 145a2a45d7bc746b19cb68410368bf96
   m_configObjects:
+    Unity.XR.Oculus.Settings: {fileID: 11400000, guid: 68fa32236f7c10c45a878f3c4f68f156, type: 2}
     com.unity.xr.management.loader_settings: {fileID: 11400000, guid: 64f5c768b3b956a40924b2abb54fc915, type: 2}
+    com.unity.xr.openxr.settings4: {fileID: 11400000, guid: 8a9b0b1382b66ab4b945885698f6473e, type: 2}
