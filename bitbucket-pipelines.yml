@@ -8,4 +8,4 @@ pipelines:
         script:
           - git clone --bare git@bitbucket.org:wildlife-wasteland/wildlife-wasteland.git
           - cd wildlife-wasteland.git
-          - git push --mirror git@github.com:wildlife-wasteland/wildlife-wasteland.git
+          - git push --mirror git@github.com:apteryxrowi/Wildlife-Wasteland.git
