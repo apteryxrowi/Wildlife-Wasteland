@@ -1,0 +1,11 @@
+pipelines:
+  default:
+    - step:
+        name: Sync GitHub Mirror
+        image: alpine/git:latest
+        clone:
+          enabled: false
+        script:
+          - git clone --bare git@bitbucket.org:wildlife-wasteland/wildlife-wasteland.git
+          - cd wildlife-wasteland.git
+          - git push --mirror git@github.com:wildlife-wasteland/wildlife-wasteland.git
